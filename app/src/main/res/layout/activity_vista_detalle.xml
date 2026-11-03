@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/main" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="#FFFFFF">
+
+    <!-- Barra superior -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="#145A96">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← BACK"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#145A96" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <!-- Imagen provisional -->
+            <ImageView
+                android:id="@+id/imgCurso"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:background="#DCE5ED"
+                android:scaleType="centerCrop"
+                android:contentDescription="Imagen del curso" />
+
+            <TextView
+                android:id="@+id/txtNomCurso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/txtNomCurso"
+                android:textColor="#111111"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtCodigo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/txtCodigo"
+                android:textColor="#222222"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="DESCRIPCIÓN:"
+                android:textColor="#111111"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txtDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/txtDescripcion"
+                android:textColor="#222222"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="ESPACIO:"
+                android:textColor="#111111"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txtEspacioCurso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/txtEspacioCurso"
+                android:textColor="#222222"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="TOTAL HORAS:"
+                android:textColor="#111111"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txtHoras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/txtHoras"
+                android:textColor="#222222"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="DÍAS DE ATENCIÓN:"
+                android:textColor="#111111"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txtDias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/txtDias"
+                android:textColor="#222222"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

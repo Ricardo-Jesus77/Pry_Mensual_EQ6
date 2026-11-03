@@ -3,6 +3,7 @@ package com.example.pry_mensual_eq6.modelo
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface ApiService {
 
@@ -21,4 +22,7 @@ interface ApiService {
     suspend fun eliminarInscripcion(
         @Body datos: clsModeloInscripcionCurso.EliminarInscripcion
     ): clsModeloInscripcionCurso.Respuesta
+
+    @GET("api_detalle.php")
+    suspend fun obtenerDetalleCurso( @Query("id") id: Int ): dataDetalleCurso
 }
