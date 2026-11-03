@@ -6,4 +6,7 @@
     <string name="txtEspacioCurso">Edificio y salon</string>
     <string name="txtHoras">Horas Totales</string>
     <string name="txtDias">Dias y Horas de atencion</string>
+    <string name="txtTitulo">Catalogo de Cursos</string>
+    <string name="txtCurso">Curso</string>
+    <string name="txtEspacio">Espacio</string>
 </resources>
