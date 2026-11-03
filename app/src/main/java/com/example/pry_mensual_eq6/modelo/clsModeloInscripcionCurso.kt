@@ -6,7 +6,8 @@ class clsModeloInscripcionCurso {
 
     data class Curso(
         val id: Int,
-        val nombre: String
+        val nombre: String,
+        val imagen: String? = null
     )
 
     data class Inscripcion(
