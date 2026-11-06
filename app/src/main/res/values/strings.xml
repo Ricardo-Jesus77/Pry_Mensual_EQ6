@@ -1,9 +1,41 @@
 <resources>
     <string name="app_name">Pry_Mensual_EQ6</string>
+
+
+    <string name="txtTitulo">CATÁLOGO DE CURSOS</string>
+    <string name="txtFiltro">Filtrar por Carrera:</string>
+    <string name="txtCurso">Curso</string>
+    <string name="txtEspacio">Salón</string>
+    <string name="btnVerDetalle">VER DETALLE</string>
+    <string name="btnRegistrarse">REGISTRARSE</string>
+    <string name="btnVerRegistros">VER REGISTROS</string>
+
+
+    <string name="btnBack">← Atras</string>
     <string name="txtNomCurso">Nombre del curso</string>
-    <string name="txtCodigo">Codigo:</string>
-    <string name="txtDescripcion">Descripcion detallada</string>
-    <string name="txtEspacioCurso">Edificio y salon</string>
-    <string name="txtHoras">Horas Totales</string>
-    <string name="txtDias">Dias y Horas de atencion</string>
+    <string name="txtCodigo">Código:</string>
+    <string name="lblDescripcion">DESCRIPCIÓN:</string>
+    <string name="txtDescripcion">Descripción detallada</string>
+    <string name="lblEspacio">ESPACIO:</string>
+    <string name="txtEspacioCurso">Edificio y salón</string>
+    <string name="lblHoras">TOTAL HORAS:</string>
+    <string name="txtHoras">Horas totales</string>
+    <string name="lblDias">DÍAS DE ATENCIÓN:</string>
+    <string name="txtDias">Días y horas de atención</string>
+
+
+    <string name="txtTituloRegistro">REGISTRO AL CURSO</string>
+    <string name="lblMatricula">MATRÍCULA DEL ALUMNO:</string>
+    <string name="hintMatricula">202XXXXX</string>
+    <string name="lblFecha">FECHA DE REGISTRO:</string>
+    <string name="hintFecha">aaaa-mm-dd</string>
+    <string name="lblEmail">CORREO INSTITUCIONAL:</string>
+    <string name="hintEmail">202XXXXX@uthh.edu.mx</string>
+    <string name="btnConfirmar">CONFIRMAR INSCRIPCIÓN</string>
+    <string name="btnCancelar">CANCELAR</string>
+
+
+    <string name="txtTituloRegistros">ESTADO DE INSCRIPCIONES</string>
+    <string name="txtTotal">Total: 0</string>
+    <string name="btnVolverCatalogo">VOLVER AL CATÁLOGO</string>
 </resources>

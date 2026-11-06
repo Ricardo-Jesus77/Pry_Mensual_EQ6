@@ -12,7 +12,8 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.pry_mensual_eq6.modelo.dataDetalleCurso
 import com.example.pry_mensual_eq6.presentador.clsVistaDetallePresentador
 import com.example.pry_mensual_eq6.R
-
+import com.bumptech.glide.Glide
+import com.example.pry_mensual_eq6.modelo.RetrofitCliente
 class vista_detalle : AppCompatActivity (){
     private lateinit var presentador: clsVistaDetallePresentador
 
@@ -48,7 +49,7 @@ class vista_detalle : AppCompatActivity (){
         }
         presentador = clsVistaDetallePresentador(this)
 
-        // Obtener el ID del curso enviado desde la pantalla anterior
+
         val idCurso = intent.getIntExtra("idCurso", -1)
 
         if (idCurso != -1) {
@@ -58,12 +59,21 @@ class vista_detalle : AppCompatActivity (){
         }
     }
     fun mostrarDetalle(curso: dataDetalleCurso) {
-        txtNomCurso.text = curso.curso
-        txtCodigo.text = curso.codigo
+        txtNomCurso.text = curso.curso.uppercase()
+        txtCodigo.text = "Código: " + curso.codigo
+        // descripcion ahora es String? (puede ser null), por eso el ?: sí tiene efecto
         txtDescripcion.text = curso.descripcion ?: "Sin descripción"
         txtEspacioCurso.text = curso.espacio
-        txtHoras.text = curso.total_horas
+        txtHoras.text = curso.total_horas + " Horas"
         txtDias.text = curso.dias_atencion
+
+
+        val urlImagen = RetrofitCliente.BASE_URL + (curso.url_imagen_principal ?: "")
+        Glide.with(this)
+            .load(urlImagen)
+            .placeholder(android.R.drawable.ic_menu_gallery)
+            .error(android.R.drawable.stat_notify_error)
+            .into(imgCurso)
     }
         fun mostrarError(mensaje: String) {
         Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()

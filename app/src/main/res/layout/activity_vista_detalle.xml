@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/main" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="#FFFFFF">
-
-    <!-- Barra superior -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:background="#145A96">
-
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="← BACK"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#145A96" />
-
-    </LinearLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".vista.vista_detalle">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,24 +19,38 @@
             android:orientation="vertical"
             android:paddingBottom="20dp">
 
-            <!-- Imagen provisional -->
-            <ImageView
-                android:id="@+id/imgCurso"
+            <!-- FrameLayout: los hijos se dibujan uno ENCIMA del otro -->
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="190dp"
-                android:background="#DCE5ED"
-                android:scaleType="centerCrop"
-                android:contentDescription="Imagen del curso" />
+                android:layout_height="220dp">
+
+                <ImageView
+                    android:id="@+id/imgCurso"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gris_tarjeta"
+                    android:contentDescription="@string/txtNomCurso"
+                    android:scaleType="centerCrop" />
+
+                <Button
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:backgroundTint="@color/azul"
+                    android:text="@string/btnBack"
+                    android:textColor="@color/white" />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/txtNomCurso"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:text="@string/txtNomCurso"
-                android:textColor="#111111"
+                android:textColor="@color/texto"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -58,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:text="@string/txtCodigo"
-                android:textColor="#222222"
+                android:textColor="@color/texto"
                 android:textSize="16sp" />
 
             <TextView
@@ -66,10 +68,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                android:text="DESCRIPCIÓN:"
-                android:textColor="#111111"
-                android:textStyle="bold"
-                android:textSize="16sp" />
+                android:text="@string/lblDescripcion"
+                android:textColor="@color/texto"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtDescripcion"
@@ -78,7 +80,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="4dp"
                 android:text="@string/txtDescripcion"
-                android:textColor="#222222"
+                android:textColor="@color/texto"
                 android:textSize="14sp" />
 
             <TextView
@@ -86,10 +88,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                android:text="ESPACIO:"
-                android:textColor="#111111"
-                android:textStyle="bold"
-                android:textSize="16sp" />
+                android:text="@string/lblEspacio"
+                android:textColor="@color/texto"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtEspacioCurso"
@@ -97,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:text="@string/txtEspacioCurso"
-                android:textColor="#222222"
+                android:textColor="@color/texto"
                 android:textSize="16sp" />
 
             <TextView
@@ -105,10 +107,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
-                android:text="TOTAL HORAS:"
-                android:textColor="#111111"
-                android:textStyle="bold"
-                android:textSize="16sp" />
+                android:text="@string/lblHoras"
+                android:textColor="@color/texto"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtHoras"
@@ -116,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:text="@string/txtHoras"
-                android:textColor="#222222"
+                android:textColor="@color/texto"
                 android:textSize="16sp" />
 
             <TextView
@@ -124,10 +126,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
-                android:text="DÍAS DE ATENCIÓN:"
-                android:textColor="#111111"
-                android:textStyle="bold"
-                android:textSize="16sp" />
+                android:text="@string/lblDias"
+                android:textColor="@color/texto"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtDias"
@@ -135,10 +137,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:text="@string/txtDias"
-                android:textColor="#222222"
+                android:textColor="@color/texto"
                 android:textSize="16sp" />
-
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>

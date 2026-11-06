@@ -1,16 +1,24 @@
 package com.example.pry_mensual_eq6.modelo
 
+import kotlinx.serialization.json.Json
+import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.kotlinx.serialization.asConverterFactory
 
 object RetrofitCliente {
 
-    private const val BASE_URL = "http://10.0.2.2/cursos_api/"
+    const val BASE_URL = "http://10.40.140.232/cursos_api/"
+
+    private val json = Json {
+        ignoreUnknownKeys = true
+        coerceInputValues = true
+        isLenient = true
+    }
 
     val api: ApiService by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .build()
             .create(ApiService::class.java)
     }
