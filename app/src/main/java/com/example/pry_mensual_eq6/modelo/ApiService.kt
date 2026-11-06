@@ -9,12 +9,12 @@ interface ApiService {
 
     @GET("obtener_carreras.php")
     suspend fun obtenerCarreras(): List<dataCarreras>
-    @GET("obtener_cursos.php")
-    suspend fun obtenerCursos(@Query("carrera_id") carreraId : Int): List<dataCursos>
-
-
 
     @GET("obtener_cursos.php")
+    suspend fun obtenerCursos(@Query("carrera_id") carreraId: Int): List<dataCursos>
+
+
+    @GET("obtener_cursos2.php")
     suspend fun obtenerCursos2(): clsModeloInscripcionCurso.RespuestaCursos
 
     @GET("obtener_inscripciones.php")
@@ -31,5 +31,8 @@ interface ApiService {
     ): clsModeloInscripcionCurso.Respuesta
 
     @GET("api_detalle.php")
-    suspend fun obtenerDetalleCurso( @Query("id") id: Int ): dataDetalleCurso
+    suspend fun obtenerDetalleCurso(@Query("id") id: Int): dataDetalleCurso
+
+    @GET("obtener_estado_inscripciones.php")
+    suspend fun obtenerEstadoInscripciones(@Query("carrera_id") carreraId: Int): List<dataEstadoCurso>
 }

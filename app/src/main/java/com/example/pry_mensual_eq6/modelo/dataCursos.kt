@@ -10,7 +10,7 @@ data class dataCursos(
     @SerialName("carrera_id") val carreraid: Int = 0,
     @SerialName("curso") val curso: String = "",
     @SerialName("codigo") val codigo: String = "",
-    @SerialName("descripción") val descripcion: String = "Sin descripción",
+    @SerialName("descripcion") val descripcion: String = "Sin descripción",
     @SerialName("espacio") val espacio: String = "",
     @SerialName("total_horas") val total_horas: String = "",
     @SerialName("dias_atencion") val dias_atencion: String = "",

@@ -1,54 +1,57 @@
 package com.example.pry_mensual_eq6.presentador
 
-import com.example.pry_mensual_eq6.modelo.RetrofitCliente
+import android.util.Patterns
 import com.example.pry_mensual_eq6.modelo.clsModeloInscripcionCurso
+import com.example.pry_mensual_eq6.vista.InscripcionCursos
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
-class clsPresentadorInscripcionCurso {
+class clsPresentadorInscripcionCurso(private val vista: InscripcionCursos) {
+    private val modelo = clsModeloInscripcionCurso()
 
-    suspend fun obtenerCursos(): List<clsModeloInscripcionCurso.Curso>? {
-        return try {
-            val respuesta = RetrofitCliente.api.obtenerCursos()
+    fun confirmarInscripcion(matricula: String, fecha: String, email: String, cursoId: Int) {
 
-            if (respuesta.success) {
-                respuesta.cursos
-            } else {
-                null
+        if (matricula.isEmpty() || fecha.isEmpty() || email.isEmpty()) {
+            vista.mostrarError("Completa todos los campos")
+            return
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            vista.mostrarError("Ingresa un correo válido")
+            return
+        }
+        if (cursoId <= 0) {
+            vista.mostrarError("No se recibió el curso seleccionado")
+            return
+        }
+
+
+        val inscripcion = clsModeloInscripcionCurso.CrearInscripcion(
+            matricula = matricula,
+            fecha = fecha,
+            email = email,
+            curso_id = cursoId
+        )
+
+        vista.bloquearBoton(true)
+
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                val respuesta = modelo.crearInscripcion(inscripcion)
+                if (respuesta.success) {
+                    vista.mostrarExito(respuesta.mensaje)
+                } else {
+                    vista.mostrarError(respuesta.mensaje)
+                }
+            } catch (e: HttpException) {
+
+                vista.mostrarError(modelo.leerMensajeError(e))
+            } catch (e: Exception) {
+
+                vista.mostrarError("Error: " + e.localizedMessage)
             }
-        } catch (e: Exception) {
-            null
-        }
-    }
-
-    suspend fun obtenerInscripciones(): List<clsModeloInscripcionCurso.Inscripcion>? {
-        return try {
-            val respuesta = RetrofitCliente.api.obtenerInscripciones()
-
-            if (respuesta.success) {
-                respuesta.inscripciones
-            } else {
-                null
-            }
-        } catch (e: Exception) {
-            null
-        }
-    }
-
-    suspend fun crearInscripcion(inscripcion: clsModeloInscripcionCurso.CrearInscripcion): Boolean {
-        return try {
-            val respuesta = RetrofitCliente.api.crearInscripcion(inscripcion)
-            respuesta.success
-        } catch (e: Exception) {
-            false
-        }
-    }
-
-    suspend fun eliminarInscripcion(id: Int): Boolean {
-        return try {
-            val datos = clsModeloInscripcionCurso.EliminarInscripcion(id)
-            val respuesta = RetrofitCliente.api.eliminarInscripcion(datos)
-            respuesta.success
-        } catch (e: Exception) {
-            false
+            vista.bloquearBoton(false)
         }
     }
 }
